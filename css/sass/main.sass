@@ -1,0 +1,585 @@
+@import "bourbon/bourbon"
+
+/* 	GENERAL STYLE */
+$main-color: #0067ee
+
+//Убрать стрелки у формы телефона
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button
+	-webkit-appearance: none
+// Для Firefox
+input
+	&[type='number']
+		-moz-appearance: textfield
+
+// Убрать свечение кнопок в браузере
+button:active, button:focus, a:active, a:focus
+	outline: none !important
+button::-moz-focus-inner 
+	border: 0 !important
+
+// Убрать желтый цвет фона input
+@-webkit-keyframes autofill
+	to
+		color: #fff
+		background: transparent
+input:-webkit-autofill
+	-webkit-animation-name: autofill
+	-webkit-animation-fill-mode: both
+
+// Убрать синие линии обводки
+*:active, *:hover, *:focus
+	outline: 0
+	outline-offset: 0
+
+html, 
+body
+	margin: 0
+	padding: 0
+	height: 100%
+	overflow-x: hidden
+body
+	font-family: 'GilroyLight', sans-serif
+	font-size: 16px
+
+textarea,
+input,
+	&:focus
+		outline: none
+li
+	list-style-type: none
+section
+	width: 100%
+	height: auto
+	margin: 80px 0
+
+.wrap
+	min-height: 100%
+	padding-bottom: 450px
+
+.btn
+	padding: 6px 20px
+	text-decoration: none !important
+	text-align: center
+	font-family: "GilroyLight", sans-serif
+	font-size: 16px
+	color: #fff
+	border: 1px solid $main-color
+	border-radius: 200px
+	background: $main-color
+	box-shadow: none !important
+	transition: .3s
+	-webkit-transition: .3s
+
+@media (max-width: 767px)
+	section
+		margin: 40px 0
+/* 	END GENERAL STYLE */
+
+/* Adaptive menu */
+#main-menu
+	-webkit-transition: .8s
+	-moz-transition: .8s
+	-ms-transition: .8s
+	-o-transition: .8s
+	transition: .8s
+	li
+		display: block
+		width: 100%
+		padding: 2px 0
+		a
+			color: #000
+			font-size: 16px
+			&:hover
+				color: #000
+	z-index: 99999 !important
+	position: fixed
+	left: -100%
+	width: 100%
+	top: 0
+	bottom: 0
+	margin: 0
+	background-color: #fff
+	border: none
+	border-radius: 0
+	&.opened
+		left: 0
+	.menu
+		margin-top: 20px
+		text-align: left
+	.account_mobile
+		padding-top: 15px
+.menu-btn
+	height: 36px
+	width: 36px
+	padding: 0 7px 
+	position: absolute
+	right: -50px
+	top: 20px
+	cursor: pointer
+	z-index: 100 !important
+	background: #000
+	border-radius: 0
+.opened .menu-btn
+	right: 0
+	top: 23px
+	border: none
+.menu-btn-line
+	height: 3px
+	background: #fff
+	position: absolute
+.menu-btn-line-1
+	transform: rotate(0deg)
+	width: 22px
+	top: 7px
+.menu-btn-line-2
+	top: 17px
+	width: 22px
+	left: 7px
+.menu-btn-line-3
+	transform: rotate(0deg)
+	width: 22px
+	top: 27px
+.opened-menu
+	.menu-btn-line
+		background: #fff
+	.menu-btn-line-1
+		transform: rotate(-45deg)
+		width: 15px
+		top: 12px
+	.menu-btn-line-2
+		top: 19px
+		width: 0px
+		left: 9px
+	.menu-btn-line-3
+		transform: rotate(45deg)
+		width: 15px
+		top: 21px
+.moduletable_menu ul
+	padding-left: 25px
+/* End Adaptive menu */
+
+/* HEADER */
+header
+	background: $main-color
+	line-height: 135px
+.main-container
+	margin: 0 auto
+	padding: 0 30px
+	display: table
+	width: 100%
+	max-width: 1400px
+.header-right
+	float: right
+.header-list, .header-reg
+	margin: 0
+	padding: 0
+	display: inline-block
+	li
+		padding: 0 20px
+		display: inline-block
+		line-height: 25px
+		a
+			padding: 9px 0
+			font-family: "GilroyLight", sans-serif
+			font-size: 18px
+			color: #fff
+			text-transform: uppercase
+			letter-spacing: 2px
+.header-list
+	li a
+		&:after
+			content: ""
+			width: 0
+			height: 1px
+			display: block
+			background-color: #fff
+			color: #fff
+			transition: .4s
+			-webkit-transition: .4s
+		&:hover:after
+			width: 100%
+.header-reg	
+	li 
+		line-height: 0
+		a
+			padding: 12px 15px
+			border: 1px solid #fff
+			border-radius: 600px
+			padding: 12px 15px
+.header-ip
+	padding: 0 30px 0 10px
+	display: inline-block
+	a
+		font-family: "GilroyLight", sans-serif
+		font-size: 18px
+		letter-spacing: 2px
+		text-decoration: none
+		color: #fff
+		border-bottom: 1px solid #fff
+		padding-bottom: 4px
+.header-social
+	display: inline-block
+	a
+		margin-right: 5px
+		width: 35px
+		height: 35px
+		border-radius: 600px
+		line-height: 35px
+		text-align: center
+		text-decoration: none
+		vertical-align: middle
+		display: inline-block
+		transition: .4s
+		-webkit-transition: .4s
+		&:hover
+			background: #ccc
+			i
+				color: $main-color
+		i
+			transition: .4s
+			-webkit-transition: .4s
+			color: #fff
+.bg-fb
+	background: #3b5998
+.bg-tw
+	background: #00b6f1
+.bg-gp
+	background: #df4a32
+.bg-in
+	background: #007bb6
+
+@media (max-width: 1199px)
+	.header-list li, .header-reg li
+		padding: 0 10px
+	.header-list li a, .header-reg li a
+		font-size: 14px
+@media (max-width: 991px)
+	.header-right
+		display: none
+	.menu_wrap
+		display: block
+	header .main-container
+		min-height: 75px
+		background: $main-color
+	.menu_wrap .header-social
+		margin-top: 10px
+@media (max-width: 480px)
+	.header-social a
+		width: 25px
+		height: 25px
+		line-height: 23px
+		i
+			font-size: 12px
+
+@media (min-width: 992px)
+	.menu_wrap
+		display: none
+	.header-right
+		display: block
+/* END HEADER */
+
+/* SEARCH BLOCK */
+.search-block
+	margin: 0
+	min-height: 135px
+	padding: 40px 0 50px 0
+	background: #0a0c0f
+	label
+		display: block
+		font-size: 9px
+		color: #fff
+
+.location, .condition, .type, .make, .year, .price
+	display: inline-block
+	margin-right: 30px
+	width: auto
+.location
+	input
+		padding: 5px
+		background: transparent
+		color: #fff
+		border: none
+		border-bottom: 1px solid #fff
+		background-image: url(../img/location-icon.png)  
+		background-repeat: no-repeat 
+		background-position: 100% 2px
+		outline: none
+		padding-right: 25px
+		&::placeholder
+			font-size: 16px
+			color: #fff
+.condition
+	span
+		vertical-align: bottom
+		font-size: 15px
+		color: #fff
+		margin-right: 15px
+		&:last-child
+			margin-right: 0
+.type
+	.jq-selectbox__select
+		min-width: 140px
+		background: url(../img/type-icon.png) no-repeat 0 8px
+.make
+	.jq-selectbox__select
+		min-width: 200px
+		background: url(../img/make-icon.png) no-repeat 0 8px
+.year
+	.jq-selectbox__select
+		min-width: 120px
+		padding-left: 5px
+.price
+	min-width: 220px
+	vertical-align: bottom
+	section
+		margin: 38px 0 0 0
+
+/* Range two sliders style */
+.value
+	position: absolute
+	top: 30px
+	left: 50%
+	margin: 0 0 0 -20px
+	width: 40px
+	text-align: center
+	display: block
+	font-weight: normal
+	font-family: Verdana,Arial,sans-serif
+	font-size: 14px
+	color: #333
+.price-range-both
+	&.value
+		width: 100px
+		margin: 0 0 0 -50px
+		top: 36px
+	display: none
+.value i
+	font-style: normal
+.ui-slider-horizontal
+	height: 1px
+.price .ui-state-default
+	top: -8px 
+	span
+		padding: 10px 0
+		top: -40px
+		left: 10px
+		width: 30px
+		height: 37px
+		background: url(../img/range-icon.png) no-repeat
+		font-size: 9px
+		color: #fff
+.price-range-both.value
+	display: none
+.ui-slider-range.ui-corner-all.ui-widget-header
+	background: #616365
+	border: 1px solid #616365
+	top: -1px
+/* End Range two sliders style */
+
+@media (max-width: 1400px) 
+	.type .jq-selectbox__select, .make .jq-selectbox__select, .year .jq-selectbox__select
+		min-width: 120px
+		.price 
+			min-width: 140px
+	.search-block
+		text-align: center
+		label
+			text-align: left
+	.condition, .type, .make, .year, .price, .search-block .btn
+		margin-top: 15px
+@media (max-width: 767px)
+	.search-block .btn
+		font-size: 14px
+@media (max-width: 480px)
+	.location input
+		width: 250px
+	.type .jq-selectbox__select, .make .jq-selectbox__select, .year .jq-selectbox__select
+		min-width: 250px
+	.price
+		width: 250px
+	.location, .condition, .type, .make, .year, .price
+		margin-right: 0
+	.search-block .btn
+		display: block
+		margin: 20px auto
+		
+/* END SEARCH BLOCK */
+
+/* PRODUCT BLOCK */
+.product-wrap 
+	text-align: center
+	margin: 20px 0
+	transition: .3s
+	-webkit-transition: .3s
+	img
+		width: 100%
+		height: auto
+		overflow: hidden
+	&-description
+		text-align: center
+		padding: 20px 55px
+		h2		
+			margin: 0
+			line-height: 1.1
+			a
+				font-family: "GilroyExtraBold", sans-serif
+				font-size: 18px
+				color: #616365
+				&:hover
+					text-decoration: none
+		ul 
+			margin: 0
+			padding: 20px 0 30px 0
+			li
+				font-size: 16px
+				color: #616365
+	&:hover
+		box-shadow:  0 9px 16px 0 rgba(97,99,101,.5)
+		.owl-prev, .owl-next
+			display: block
+.product-btn
+	margin: 5px 0
+	min-width: 180px
+	background: transparent
+	border: 1px solid #616365
+	color: #616365
+	font-family: "GilroyExtraBold", sans-serif
+	font-size: 16px
+	transition: .3s
+	-webkit-transition: .3s
+	&:hover
+		background: #616365
+		color: #fff
+.btn-make
+	padding: 8px 8px
+	i
+		padding-left: 10px
+.btn-view
+	padding: 8px 10px
+	i
+		padding-left: 15px
+.owl-prev
+	display: none
+	width: 19px
+	height: 31px
+	position: absolute
+	left: 0
+	top: 40%
+	background: url(../img/prev-btn.png) no-repeat center center
+.owl-next
+	display: none
+	width: 19px
+	height: 31px
+	position: absolute
+	right: 0
+	top: 40%
+	background: url(../img/next-btn.png) no-repeat center center
+
+@media (max-width: 1199px)
+	.product-wrap-description
+		padding: 20px 25px
+@media (max-width: 767px)
+	.product-wrap-description 
+		h2 
+			line-height: 1.1
+			a
+				font-size: 16px
+		ul li
+			font-size: 14px
+	.product-btn
+		font-size: 14px
+		font-weight: 600
+	.owl-prev, .owl-next
+		display: block
+@media (max-width: 480px)
+	.col-xxs-12
+		width: 100%
+	.product-btn
+		display: block
+		margin: 10px auto
+
+/* END PRODUCT BLOCK */
+
+/* PRODUCT NAVIGATION BLOCK */
+.product-nav 
+	text-align: center
+	background: $main-color
+	ul 
+		padding: 0
+		li
+			padding: 7px 0
+			display: inline-block
+			width: 41px
+			height: 41px
+			border: 2px solid #fff
+			border-radius: 600px
+			cursor: pointer
+			transition: .3s
+			-webkit-transition: .3s
+			&:hover
+				background: #fff
+				a
+					color: $main-color
+			a
+				color: #fff
+				font-size: 18px
+				font-family: "GilroyExtraBold", sans-serif
+			&:nth-child(4)
+				border: none
+				background: transparent
+				&:hover
+					a
+						background: transparent
+						color: #fff
+
+@media (max-width: 480px)
+	.product-nav ul li
+		padding: 9px 0
+		a
+			font-size: 16px
+/* END PRODUCT NAVIGATION BLOCK */
+
+/* FOOTER */
+footer
+	padding-top: 70px
+	background: #616365
+	height: 450px
+	margin-top: -450px
+	h2
+		text-align: left
+		margin: 0
+		padding-bottom: 30px
+		font-family: "GilroyExtraBold", sans-serif
+		font-size: 18px
+		color: #fff
+	ul 
+		margin: 0
+		padding: 0
+		li a
+			padding: 5px 0
+			font-size: 18px
+			color: #fff
+			opacity: 1
+			transition: .2s
+			-webkit-transition: .2s
+			i
+				text-align: center
+				width: 15px
+				height: auto
+				margin-right: 25px
+			&:hover
+				opacity: .8
+
+@media (max-width: 767px)
+	footer
+		text-align: center
+		h2
+			text-align: center
+			padding: 30px 0 10px 0
+	.footer-socials
+		display: inline-block
+		li
+			text-align: left
+
+/* END FOOTER */
